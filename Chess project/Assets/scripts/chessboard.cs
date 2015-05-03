@@ -44,22 +44,11 @@ public class chessboard : MonoBehaviour
 										else
 												check = 2;
 								}
+				else check =0;
 						}
 
 				}
-				foreach (GameObject x in tiles) {
-						if (x.GetComponent<tileprops> ().killmove == true) {
-								if (x.GetComponent<tileprops> ().top != null && x.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().ptype == 6) {
-										if (x.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().pcolour)
-												check = 1;
-										else
-												check = 2;
-										break;
-								}
-
-						}
-						check = 0;
-				}
+				
 
 
 		}
