@@ -51,6 +51,8 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						temp = x.transform.position;
 						temp.x = gameObject.transform.position.x;
 						temp.z = gameObject.transform.position.z;
+						chessboard.GetComponent<chessboard> ().board [row, col].GetComponent<tileprops> ().top = x;
+
 						int i = 0;
 						foreach (GameObject y in chessboard.GetComponent<chessboard>().pieces) {
 								if (y == this.gameObject) {
@@ -67,6 +69,7 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
 						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
 						x.transform.position = temp;
+						x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board [row, col];
 						chessboard.GetComponent<chessboard> ().selectedpiece = null;
 						x = null;
 						chessboard.GetComponent<chessboard> ().turn = !chessboard.GetComponent<chessboard> ().turn;
@@ -100,14 +103,12 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 
 		public void validmoves ()
 		{
-		        for (int i=0; i<64; i++) 
-		        {
+				for (int i=0; i<64; i++) {
 						validmoveinstance [i] = killmoveinstance [i] = null;
 				}
 				validcount = 0;
 				killcount = 0;
-				switch (ptype) 
-				{
+				switch (ptype) {
 				case 1:
 						validpawnmoves ();
 						break;
@@ -128,77 +129,73 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						break;
 				}
 			
-			if(ptype!=6)
-			{
-			GameObject temp2;
-			for(int j =0;j<64;j++)
-			{
-				GameObject x = validmoveinstance[j];
-				GameObject y = killmoveinstance [j];
-				if(x!=null)
-				{
-				temp2=x.GetComponent<tileprops>().top;
-				x.GetComponent<tileprops>().top = this.gameObject;
-				tile.GetComponent<tileprops>().top=null;
-				foreach (GameObject t in chessboard.GetComponent<chessboard>().pieces)
-					{
-					if(t.GetComponent<chesspiece>().ptype==6 && t.GetComponent<chesspiece>().pcolour==pcolour)
-						{
-							if(!checkkingmove(t,t.GetComponent<chesspiece>().tile)==true)
-								   {
-								  
-									x.GetComponent<tileprops>().top=temp2;
-									tile.GetComponent<tileprops>().top=this.gameObject;
-									validmoveinstance[j]=null;
-									break;
-								  }
-							else break;
-						}
-
-					}
-				}
-				if(y!=null)
-				{
-					temp2=y.GetComponent<tileprops>().top;
-					y.GetComponent<tileprops>().top = this.gameObject;
-					tile.GetComponent<tileprops>().top=null;
-					foreach (GameObject t in chessboard.GetComponent<chessboard>().pieces)
-					{
-						if(t.GetComponent<chesspiece>().ptype==6 && t.GetComponent<chesspiece>().pcolour==pcolour)
-						{
-							if(!checkkingmove(t,t.GetComponent<chesspiece>().tile)==true)
-							{
-								
-								y.GetComponent<tileprops>().top=temp2;
-								tile.GetComponent<tileprops>().top=this.gameObject;
-								killmoveinstance[j]=null;
-								break;
-							}
-							else break;
-						}
+				if (ptype != 6 && selected == true) {
 						
-					}
+						for (int i=0; i<64; i++) {
+								if (validmoveinstance [i] != null) {
+										GameObject temp2 = validmoveinstance [i].GetComponent<tileprops> ().top;
+										validmoveinstance [i].GetComponent<tileprops> ().top = this.gameObject;
+										tile.GetComponent<tileprops> ().top = null;
+										foreach (GameObject x in chessboard.GetComponent<chessboard>().pieces) {
+												if (x != null)
+												if (x.GetComponent<chesspiece> ().pcolour == this.pcolour && x.GetComponent<chesspiece> ().ptype == 6) {
+														if (!checkkingmove (x, x.GetComponent<chesspiece> ().tile)) {
+																validmoveinstance [i].GetComponent<tileprops> ().top = temp2;
+																validmoveinstance [i] = null;
+														} else
+																validmoveinstance [i].GetComponent<tileprops> ().top = temp2;
+														break;
+												}
+										}
+										tile.GetComponent<tileprops> ().top = this.gameObject;
+								}
+						}
+						for (int i=0; i<64; i++) {
+
+								if (killmoveinstance [i] != null) {
+										int l = 0;
+										GameObject temp2 = killmoveinstance [i].GetComponent<tileprops> ().top;
+										for (l=0; l<32; l++) {
+												if (chessboard.GetComponent<chessboard> ().pieces [l] == temp2) {
+														chessboard.GetComponent<chessboard> ().pieces [l] = null;
+														Debug.Log ("nulledprint" + l);
+														break;
+												}
+										}
+										killmoveinstance [i].GetComponent<tileprops> ().top = this.gameObject;
+										tile.GetComponent<tileprops> ().top = null;
+										foreach (GameObject x in chessboard.GetComponent<chessboard>().pieces) {
+												if (x != null)
+												if (x.GetComponent<chesspiece> ().pcolour == this.pcolour && x.GetComponent<chesspiece> ().ptype == 6) {
+														if (!checkkingmove (x, x.GetComponent<chesspiece> ().tile)) {
+
+																killmoveinstance [i].GetComponent<tileprops> ().top = temp2;
+																killmoveinstance [i] = null;
+														} else {
+																killmoveinstance [i].GetComponent<tileprops> ().top = temp2;
+														}
+														break;
+												}
+										}
+										tile.GetComponent<tileprops> ().top = this.gameObject;
+										chessboard.GetComponent<chessboard> ().pieces [l] = temp2;
+								}
+						}
 				}
-			}
-			}
 	
-				if (selected) 
-							{
-						for (int i=0; i<64; i++) 
-								{
+				if (selected) {
+						for (int i=0; i<64; i++) {
 								if (killmoveinstance [i] != null)
 									
 										killmoveinstance [i].GetComponent<tileprops> ().isvalidmove = killmoveinstance [i].GetComponent<tileprops> ().killmove = true;
-						        }
-						for (int i=0; i<64; i++) 
-								{
+						}
+						for (int i=0; i<64; i++) {
 								if (validmoveinstance [i] != null)
 										
 										validmoveinstance [i].GetComponent<tileprops> ().isvalidmove = true;
-						        }
-				           }
-	}			
-		
+						}
+				}
+		}
 
 		public void validpawnmoves ()
 		{
@@ -545,8 +542,9 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						return false;
 				GameObject temp;
 				temp = tile.GetComponent<tileprops> ().top;
-				tile.GetComponent<tileprops> ().top = king;
+				tile.GetComponent<tileprops> ().top = king; 
 				foreach (GameObject x in chessboard.GetComponent<chessboard> ().pieces) {
+	
 						if (x != null && x.GetComponent<chesspiece> ().pcolour != king.GetComponent<chesspiece> ().pcolour) {
 								if (x.GetComponent<chesspiece> ().ptype != 6) {
 										x.GetComponent<chesspiece> ().validmoves ();
@@ -557,8 +555,16 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 												}
 												if (x.GetComponent<chesspiece> ().killmoveinstance [i] != null && x.GetComponent<chesspiece> ().killmoveinstance [i] == tile) {
 														tile.GetComponent<tileprops> ().top = temp;
+		
 														return false;
 												}
+										}
+								} else if (x.GetComponent<chesspiece> ().ptype == 6) {
+										int t = Mathf.Abs (tile.GetComponent<tileprops> ().row - x.GetComponent<chesspiece> ().row);
+										int p = Mathf.Abs (tile.GetComponent<tileprops> ().col - x.GetComponent<chesspiece> ().col);
+										if ((p == 1 || p == 0) && (t == 1 || t == 0)) {
+												tile.GetComponent<tileprops> ().top = temp;
+												return false;
 										}
 								}
 						}
@@ -567,40 +573,60 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 				return true;
 				
 		}
-	public void castlemebaby(){
-		int i = 1,rc=1,lc=1;
-		if (pcolour == true && chessboard.GetComponent<chessboard> ().check == 1)
+
+		public void castlemebaby ()
+		{
+				int i = 1, rc = 1, lc = 1;
+				if (pcolour == true && chessboard.GetComponent<chessboard> ().check == 1)
 						return;
-		if (pcolour == false && chessboard.GetComponent<chessboard> ().check == 2)
-			return;
-		if (movecount != 0)
+				if (pcolour == false && chessboard.GetComponent<chessboard> ().check == 2)
 						return;
-		if (chessboard.GetComponent<chessboard> ().board [row, 0].gameObject.GetComponent<tileprops> ().top == null || chessboard.GetComponent<chessboard> ().board [row, 0].gameObject.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().movecount != 0)
-			rc=0;
-		if (chessboard.GetComponent<chessboard> ().board [row, 7].gameObject.GetComponent<tileprops> ().top == null || chessboard.GetComponent<chessboard> ().board [row, 7].gameObject.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().movecount != 0)
-			lc=0;
-		while (col-i>0||col+i<7) {
-			if(col-i>0){a = chessboard.GetComponent<chessboard> ().board [row, col -i];
-			if (a.gameObject.GetComponent<tileprops> ().top != null){rc=0;}
-				if(i==1||i==2)if(!checkkingmove (this.gameObject, a)){rc=0;}}
-			if(col+i<7){a = chessboard.GetComponent<chessboard> ().board [row, col +i];
-				if (a.gameObject.GetComponent<tileprops> ().top != null){lc=0;}
-				if(i==1||i==2)if(!checkkingmove (this.gameObject, a)){lc=0;}}
-			i++;
+				if (movecount != 0)
+						return;
+				if (chessboard.GetComponent<chessboard> ().board [row, 0].gameObject.GetComponent<tileprops> ().top == null || chessboard.GetComponent<chessboard> ().board [row, 0].gameObject.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().movecount != 0)
+						rc = 0;
+				if (chessboard.GetComponent<chessboard> ().board [row, 7].gameObject.GetComponent<tileprops> ().top == null || chessboard.GetComponent<chessboard> ().board [row, 7].gameObject.GetComponent<tileprops> ().top.GetComponent<chesspiece> ().movecount != 0)
+						lc = 0;
+				while (col-i>0||col+i<7) {
+						if (col - i > 0) {
+								a = chessboard.GetComponent<chessboard> ().board [row, col - i];
+								if (a.gameObject.GetComponent<tileprops> ().top != null) {
+										rc = 0;
+								}
+								if (i == 1 || i == 2)
+								if (!checkkingmove (this.gameObject, a)) {
+										rc = 0;
+								}
+						}
+						if (col + i < 7) {
+								a = chessboard.GetComponent<chessboard> ().board [row, col + i];
+								if (a.gameObject.GetComponent<tileprops> ().top != null) {
+										lc = 0;
+								}
+								if (i == 1 || i == 2)
+								if (!checkkingmove (this.gameObject, a)) {
+										lc = 0;
+								}
+						}
+						i++;
 				}
-		if (lc == 1) {validmoveinstance [validcount] = a = chessboard.GetComponent<chessboard> ().board [row, col+2];a.GetComponent<tileprops>().castlingtile=2;
-			validcount++;
+				if (lc == 1) {
+						validmoveinstance [validcount] = a = chessboard.GetComponent<chessboard> ().board [row, col + 2];
+						a.GetComponent<tileprops> ().castlingtile = 2;
+						validcount++;
 				}
-		if (rc == 1) {validmoveinstance [validcount] = a = chessboard.GetComponent<chessboard> ().board [row, col-2];a.GetComponent<tileprops>().castlingtile=1;
-			validcount++;
-		}
+				if (rc == 1) {
+						validmoveinstance [validcount] = a = chessboard.GetComponent<chessboard> ().board [row, col - 2];
+						a.GetComponent<tileprops> ().castlingtile = 1;
+						validcount++;
+				}
 		}
 
 		public void kingmove ()
-	{
+		{
 				if (movecount == 0)
 						castlemebaby ();
-				 {
+				{
 
 						if (col + 1 < 8) {
 								a = chessboard.GetComponent<chessboard> ().board [row, col + 1];

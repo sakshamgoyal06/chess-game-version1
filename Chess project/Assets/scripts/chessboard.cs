@@ -32,19 +32,18 @@ public class chessboard : MonoBehaviour
 		{
 				foreach (GameObject x in pieces) {
 						if (x != null) {
-								x.GetComponent<chesspiece> ().tile = board [x.GetComponent<chesspiece> ().row, x.GetComponent<chesspiece> ().col];
-								board [x.GetComponent<chesspiece> ().row, x.GetComponent<chesspiece> ().col].GetComponent<tileprops> ().top = x;
+								
 								board [x.GetComponent<chesspiece> ().row, x.GetComponent<chesspiece> ().col].GetComponent<tileprops> ().haspiece = true;
 								if (x.GetComponent<chesspiece> ().selected)
 										selectedpiece = x;
 								if (x.GetComponent<chesspiece> ().ptype == 6)
 								if (!x.GetComponent<chesspiece> ().checkkingmove (x, x.GetComponent<chesspiece> ().tile)) {
-										if (x.GetComponent<chesspiece> ().pcolour)
+										if (x.GetComponent<chesspiece> ().pcolour == true)
 												check = 1;
 										else
 												check = 2;
-								}
-				else check =0;
+								} else
+										check = 0;
 						}
 
 				}
