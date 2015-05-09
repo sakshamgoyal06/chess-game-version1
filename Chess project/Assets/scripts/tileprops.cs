@@ -40,10 +40,13 @@ public class tileprops : MonoBehaviour
 						gameObject.renderer.material.color = selectcol;
 				else if (haspiece && isvalidmove && killmove)
 						gameObject.renderer.material.color = killcol;
-				else if (isvalidmove == true)
-						gameObject.renderer.material.color = validcol;
-				else
-						gameObject.renderer.material.color = defcol;
+				
+				else if (castlingtile != 0)
+						gameObject.renderer.material.color = Color.yellow;
+		else if (isvalidmove == true)
+			gameObject.renderer.material.color = validcol;
+		else 
+			gameObject.renderer.material.color = defcol;
 
 
 		}
@@ -88,6 +91,9 @@ public class tileprops : MonoBehaviour
 								x.GetComponent<chesspiece> ().selected = false;
 								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
 								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
+				x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board[row,col+1];
+			chessboard.GetComponent<chessboard> ().board[row,col+1].GetComponent<tileprops>().top=x;
+				castlingtile = 0;
 						}
 						if (castlingtile == 2) {
 								x = chessboard.GetComponent<chessboard> ().board [row, 7].GetComponent<tileprops> ().top;
@@ -101,6 +107,9 @@ public class tileprops : MonoBehaviour
 								x.GetComponent<chesspiece> ().selected = false;
 								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
 								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
+				x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board[row,col-1];
+				chessboard.GetComponent<chessboard> ().board[row,col-1].GetComponent<tileprops>().top=x;
+				castlingtile = 0;
 						}
 				}
 		}

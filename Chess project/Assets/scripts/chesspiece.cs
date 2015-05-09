@@ -16,8 +16,8 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 		GameObject x, a;
 		public GameObject[] validmoveinstance;
 		public GameObject[] killmoveinstance ;
-		int validcount = 0;
-		int killcount = 0;
+		public int validcount = 0;
+		public int killcount = 0;
 		
 		// Use this for initialization
 		void Awake ()
@@ -158,7 +158,7 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 										for (l=0; l<32; l++) {
 												if (chessboard.GetComponent<chessboard> ().pieces [l] == temp2) {
 														chessboard.GetComponent<chessboard> ().pieces [l] = null;
-														Debug.Log ("nulledprint" + l);
+														
 														break;
 												}
 										}
@@ -182,6 +182,13 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 								}
 						}
 				}
+		validcount = 0;;killcount = 0;
+		for (int i =0; i<64; i++) {
+			if(killmoveinstance[i]!=null)killcount++;
+			if(validmoveinstance[i]!=null)validcount++;
+			
+		}
+	
 	
 				if (selected) {
 						for (int i=0; i<64; i++) {
@@ -542,6 +549,7 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						return false;
 				GameObject temp;
 				temp = tile.GetComponent<tileprops> ().top;
+		king.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
 				tile.GetComponent<tileprops> ().top = king; 
 				foreach (GameObject x in chessboard.GetComponent<chessboard> ().pieces) {
 	
@@ -551,10 +559,14 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 										for (int i =0; i<64; i++) {
 												if (x.GetComponent<chesspiece> ().validmoveinstance [i] != null && x.GetComponent<chesspiece> ().validmoveinstance [i] == tile) {
 														tile.GetComponent<tileprops> ().top = temp;
+							king.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = king;
+
 														return false;
 												}
 												if (x.GetComponent<chesspiece> ().killmoveinstance [i] != null && x.GetComponent<chesspiece> ().killmoveinstance [i] == tile) {
 														tile.GetComponent<tileprops> ().top = temp;
+							king.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = king;
+
 		
 														return false;
 												}
@@ -564,12 +576,16 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 										int p = Mathf.Abs (tile.GetComponent<tileprops> ().col - x.GetComponent<chesspiece> ().col);
 										if ((p == 1 || p == 0) && (t == 1 || t == 0)) {
 												tile.GetComponent<tileprops> ().top = temp;
+						king.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = king;
+
 												return false;
 										}
 								}
 						}
 				}
 				tile.GetComponent<tileprops> ().top = temp;
+		king.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = king;
+
 				return true;
 				
 		}
