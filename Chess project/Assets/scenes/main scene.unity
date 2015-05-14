@@ -85,7 +85,6 @@ GameObject:
   - 33: {fileID: 2800959}
   - 23: {fileID: 2800958}
   - 95: {fileID: 2800957}
-  - 54: {fileID: 2800956}
   - 114: {fileID: 2800960}
   - 65: {fileID: 2800961}
   m_Layer: 0
@@ -107,21 +106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 59
---- !u!54 &2800956
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2800954}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2800957
 Animator:
   serializedVersion: 3
@@ -178,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -191,6 +177,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2800961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -462,7 +450,6 @@ GameObject:
   - 33: {fileID: 16572230}
   - 23: {fileID: 16572229}
   - 95: {fileID: 16572228}
-  - 54: {fileID: 16572227}
   - 114: {fileID: 16572231}
   - 65: {fileID: 16572232}
   m_Layer: 0
@@ -484,21 +471,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 49
---- !u!54 &16572227
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16572225}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &16572228
 Animator:
   serializedVersion: 3
@@ -555,6 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -568,6 +542,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &16572232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -651,7 +627,6 @@ GameObject:
   - 33: {fileID: 41847021}
   - 23: {fileID: 41847020}
   - 95: {fileID: 41847019}
-  - 54: {fileID: 41847018}
   - 114: {fileID: 41847022}
   - 65: {fileID: 41847023}
   m_Layer: 0
@@ -673,21 +648,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 62
---- !u!54 &41847018
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 41847016}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &41847019
 Animator:
   serializedVersion: 3
@@ -744,6 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -757,6 +719,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &41847023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -769,6 +733,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.00000191, z: 2.00000095}
   m_Center: {x: 0, y: -4.76837386e-07, z: 0}
+--- !u!1 &54158470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 54158471}
+  m_Layer: 0
+  m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &54158471
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 54158470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1191274115}
+  m_Father: {fileID: 1410693253}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1001 &72170082
 Prefab:
   m_ObjectHideFlags: 0
@@ -840,7 +837,6 @@ GameObject:
   - 33: {fileID: 72835514}
   - 23: {fileID: 72835513}
   - 95: {fileID: 72835512}
-  - 54: {fileID: 72835511}
   - 114: {fileID: 72835510}
   - 65: {fileID: 72835509}
   m_Layer: 0
@@ -897,21 +893,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &72835511
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 72835507}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &72835512
 Animator:
   serializedVersion: 3
@@ -1017,6 +998,67 @@ Prefab:
   m_RootGameObject: {fileID: 93849102}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &81475796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 81475797}
+  - 222: {fileID: 81475799}
+  - 114: {fileID: 81475798}
+  m_Layer: 0
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &81475797
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81475796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1884579031}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &81475798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81475796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .654411793, g: .197285905, b: .197285905, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &81475799
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81475796}
 --- !u!1 &93849102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1070,6 @@ GameObject:
   - 33: {fileID: 93849107}
   - 23: {fileID: 93849106}
   - 95: {fileID: 93849105}
-  - 54: {fileID: 93849104}
   - 114: {fileID: 93849108}
   - 65: {fileID: 93849109}
   m_Layer: 0
@@ -1050,21 +1091,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 42
---- !u!54 &93849104
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93849102}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &93849105
 Animator:
   serializedVersion: 3
@@ -1121,6 +1147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -1134,6 +1162,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &93849109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1225,7 +1255,6 @@ GameObject:
   - 33: {fileID: 111749180}
   - 23: {fileID: 111749179}
   - 95: {fileID: 111749178}
-  - 54: {fileID: 111749177}
   - 114: {fileID: 111749181}
   - 65: {fileID: 111749182}
   m_Layer: 0
@@ -1247,21 +1276,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 34
---- !u!54 &111749177
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 111749175}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &111749178
 Animator:
   serializedVersion: 3
@@ -1318,6 +1332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -1331,6 +1347,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &111749182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1403,6 +1421,67 @@ Prefab:
   m_RootGameObject: {fileID: 370349875}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &120905312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 120905313}
+  - 222: {fileID: 120905315}
+  - 114: {fileID: 120905314}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &120905313
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120905312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1410693253}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: .25}
+  m_AnchorMax: {x: 1, y: .75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &120905314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120905312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .735294104, g: .254108965, b: .254108965, a: 1}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &120905315
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120905312}
 --- !u!1001 &128387056
 Prefab:
   m_ObjectHideFlags: 0
@@ -1474,7 +1553,6 @@ GameObject:
   - 33: {fileID: 131363950}
   - 23: {fileID: 131363949}
   - 95: {fileID: 131363948}
-  - 54: {fileID: 131363947}
   - 114: {fileID: 131363951}
   - 65: {fileID: 131363952}
   m_Layer: 0
@@ -1496,21 +1574,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 15
---- !u!54 &131363947
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131363945}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &131363948
 Animator:
   serializedVersion: 3
@@ -1567,6 +1630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -1580,6 +1645,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &131363952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1663,7 +1730,6 @@ GameObject:
   - 33: {fileID: 164794234}
   - 23: {fileID: 164794233}
   - 95: {fileID: 164794232}
-  - 54: {fileID: 164794231}
   - 114: {fileID: 164794235}
   - 65: {fileID: 164794236}
   m_Layer: 0
@@ -1685,21 +1751,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 36
---- !u!54 &164794231
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 164794229}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &164794232
 Animator:
   serializedVersion: 3
@@ -1756,6 +1807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -1769,6 +1822,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &164794236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1792,7 +1847,6 @@ GameObject:
   - 33: {fileID: 178463781}
   - 23: {fileID: 178463780}
   - 95: {fileID: 178463779}
-  - 54: {fileID: 178463778}
   - 114: {fileID: 178463782}
   - 65: {fileID: 178463783}
   m_Layer: 0
@@ -1814,21 +1868,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 56
---- !u!54 &178463778
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 178463776}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &178463779
 Animator:
   serializedVersion: 3
@@ -1885,6 +1924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -1898,6 +1939,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &178463783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1921,7 +1964,6 @@ GameObject:
   - 33: {fileID: 184880317}
   - 23: {fileID: 184880316}
   - 95: {fileID: 184880315}
-  - 54: {fileID: 184880314}
   - 114: {fileID: 184880318}
   - 65: {fileID: 184880313}
   m_Layer: 0
@@ -1955,21 +1997,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &184880314
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 184880311}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &184880315
 Animator:
   serializedVersion: 3
@@ -2169,7 +2196,6 @@ GameObject:
   - 33: {fileID: 207273188}
   - 23: {fileID: 207273187}
   - 95: {fileID: 207273186}
-  - 54: {fileID: 207273185}
   - 114: {fileID: 207273189}
   - 65: {fileID: 207273190}
   m_Layer: 0
@@ -2191,21 +2217,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 0
---- !u!54 &207273185
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 207273183}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &207273186
 Animator:
   serializedVersion: 3
@@ -2262,6 +2273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -2275,6 +2288,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &207273190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2298,7 +2313,6 @@ GameObject:
   - 33: {fileID: 211007406}
   - 23: {fileID: 211007405}
   - 95: {fileID: 211007404}
-  - 54: {fileID: 211007403}
   - 114: {fileID: 211007407}
   - 65: {fileID: 211007408}
   m_Layer: 0
@@ -2320,21 +2334,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 12
---- !u!54 &211007403
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211007401}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &211007404
 Animator:
   serializedVersion: 3
@@ -2391,6 +2390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -2404,6 +2405,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &211007408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2476,6 +2479,69 @@ Prefab:
   m_RootGameObject: {fileID: 497242098}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &236533859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 236533860}
+  - 222: {fileID: 236533862}
+  - 114: {fileID: 236533861}
+  m_Layer: 0
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &236533860
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236533859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .972527027, y: .119246364, z: .957005501}
+  m_Children:
+  - {fileID: 1323627930}
+  - {fileID: 1317079294}
+  m_Father: {fileID: 1197358858}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -30.5}
+  m_SizeDelta: {x: 0, y: 401}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &236533861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236533859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .0784313753, g: .333333343, b: .486274511, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &236533862
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236533859}
 --- !u!1 &237427323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,7 +2553,6 @@ GameObject:
   - 33: {fileID: 237427328}
   - 23: {fileID: 237427327}
   - 95: {fileID: 237427326}
-  - 54: {fileID: 237427325}
   - 114: {fileID: 237427329}
   - 65: {fileID: 237427330}
   m_Layer: 0
@@ -2509,21 +2574,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 1
---- !u!54 &237427325
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 237427323}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &237427326
 Animator:
   serializedVersion: 3
@@ -2580,6 +2630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -2593,6 +2645,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &237427330
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2616,7 +2670,6 @@ GameObject:
   - 33: {fileID: 260308244}
   - 23: {fileID: 260308243}
   - 95: {fileID: 260308242}
-  - 54: {fileID: 260308241}
   - 114: {fileID: 260308245}
   - 65: {fileID: 260308246}
   m_Layer: 0
@@ -2638,21 +2691,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 31
---- !u!54 &260308241
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 260308239}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &260308242
 Animator:
   serializedVersion: 3
@@ -2709,6 +2747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -2722,6 +2762,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &260308246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2873,7 +2915,6 @@ GameObject:
   - 33: {fileID: 316835231}
   - 23: {fileID: 316835230}
   - 95: {fileID: 316835229}
-  - 54: {fileID: 316835228}
   - 114: {fileID: 316835232}
   - 65: {fileID: 316835233}
   m_Layer: 0
@@ -2895,21 +2936,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 11
---- !u!54 &316835228
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 316835226}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &316835229
 Animator:
   serializedVersion: 3
@@ -2966,6 +2992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -2979,6 +3007,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &316835233
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3051,6 +3081,134 @@ Prefab:
   m_RootGameObject: {fileID: 442031102}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &321377292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 321377293}
+  - 222: {fileID: 321377297}
+  - 114: {fileID: 321377296}
+  - 114: {fileID: 321377295}
+  - 114: {fileID: 321377294}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &321377293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321377292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .849605441, y: .128567427, z: 1}
+  m_Children:
+  - {fileID: 2007146435}
+  m_Father: {fileID: 1944242458}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 11.3000002}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &321377294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321377292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a4ec777b1a84f43ad0427f906bfe2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &321377295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321377292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 321377296}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 321377294}
+        m_MethodName: resetboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &321377296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321377292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &321377297
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321377292}
 --- !u!1 &370349875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,7 +3220,6 @@ GameObject:
   - 33: {fileID: 370349880}
   - 23: {fileID: 370349879}
   - 95: {fileID: 370349878}
-  - 54: {fileID: 370349877}
   - 114: {fileID: 370349881}
   - 65: {fileID: 370349882}
   m_Layer: 0
@@ -3084,21 +3241,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 14
---- !u!54 &370349877
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 370349875}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &370349878
 Animator:
   serializedVersion: 3
@@ -3155,6 +3297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -3168,6 +3312,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &370349882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3191,7 +3337,6 @@ GameObject:
   - 33: {fileID: 414978628}
   - 23: {fileID: 414978627}
   - 95: {fileID: 414978626}
-  - 54: {fileID: 414978625}
   - 114: {fileID: 414978629}
   - 65: {fileID: 414978630}
   m_Layer: 0
@@ -3213,21 +3358,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 23
---- !u!54 &414978625
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414978623}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &414978626
 Animator:
   serializedVersion: 3
@@ -3284,6 +3414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -3297,6 +3429,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &414978630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3320,7 +3454,6 @@ GameObject:
   - 33: {fileID: 421684713}
   - 23: {fileID: 421684712}
   - 95: {fileID: 421684711}
-  - 54: {fileID: 421684710}
   - 114: {fileID: 421684714}
   - 65: {fileID: 421684715}
   m_Layer: 0
@@ -3342,21 +3475,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 39
---- !u!54 &421684710
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 421684708}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &421684711
 Animator:
   serializedVersion: 3
@@ -3413,6 +3531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -3426,6 +3546,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &421684715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3449,7 +3571,6 @@ GameObject:
   - 33: {fileID: 421718556}
   - 23: {fileID: 421718555}
   - 95: {fileID: 421718554}
-  - 54: {fileID: 421718553}
   - 114: {fileID: 421718557}
   - 65: {fileID: 421718558}
   m_Layer: 0
@@ -3471,21 +3592,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 24
---- !u!54 &421718553
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 421718551}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &421718554
 Animator:
   serializedVersion: 3
@@ -3542,6 +3648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -3555,6 +3663,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &421718558
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3638,7 +3748,6 @@ GameObject:
   - 33: {fileID: 427355133}
   - 23: {fileID: 427355132}
   - 95: {fileID: 427355131}
-  - 54: {fileID: 427355130}
   - 114: {fileID: 427355129}
   - 65: {fileID: 427355128}
   m_Layer: 0
@@ -3695,21 +3804,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &427355130
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 427355126}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &427355131
 Animator:
   serializedVersion: 3
@@ -3834,7 +3928,6 @@ GameObject:
   - 33: {fileID: 442031107}
   - 23: {fileID: 442031106}
   - 95: {fileID: 442031105}
-  - 54: {fileID: 442031104}
   - 114: {fileID: 442031108}
   - 65: {fileID: 442031109}
   m_Layer: 0
@@ -3856,21 +3949,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 40
---- !u!54 &442031104
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 442031102}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &442031105
 Animator:
   serializedVersion: 3
@@ -3927,6 +4005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -3940,6 +4020,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &442031109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3963,7 +4045,6 @@ GameObject:
   - 33: {fileID: 443322005}
   - 23: {fileID: 443322004}
   - 95: {fileID: 443322003}
-  - 54: {fileID: 443322002}
   - 114: {fileID: 443322006}
   - 65: {fileID: 443322007}
   m_Layer: 0
@@ -3985,21 +4066,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 50
---- !u!54 &443322002
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 443322000}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &443322003
 Animator:
   serializedVersion: 3
@@ -4056,6 +4122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -4069,6 +4137,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &443322007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4160,7 +4230,6 @@ GameObject:
   - 33: {fileID: 455653330}
   - 23: {fileID: 455653329}
   - 95: {fileID: 455653328}
-  - 54: {fileID: 455653327}
   - 114: {fileID: 455653331}
   - 65: {fileID: 455653332}
   m_Layer: 0
@@ -4182,21 +4251,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 3
---- !u!54 &455653327
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 455653325}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &455653328
 Animator:
   serializedVersion: 3
@@ -4253,6 +4307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -4266,6 +4322,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &455653332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4500,7 +4558,6 @@ GameObject:
   - 33: {fileID: 497242103}
   - 23: {fileID: 497242102}
   - 95: {fileID: 497242101}
-  - 54: {fileID: 497242100}
   - 114: {fileID: 497242104}
   - 65: {fileID: 497242105}
   m_Layer: 0
@@ -4522,21 +4579,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 7
---- !u!54 &497242100
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 497242098}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &497242101
 Animator:
   serializedVersion: 3
@@ -4593,6 +4635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -4606,6 +4650,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &497242105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4689,7 +4735,6 @@ GameObject:
   - 33: {fileID: 527105300}
   - 23: {fileID: 527105299}
   - 95: {fileID: 527105298}
-  - 54: {fileID: 527105297}
   - 114: {fileID: 527105301}
   - 65: {fileID: 527105302}
   m_Layer: 0
@@ -4711,21 +4756,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 8
---- !u!54 &527105297
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 527105295}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &527105298
 Animator:
   serializedVersion: 3
@@ -4782,6 +4812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -4795,6 +4827,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &527105302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4818,7 +4852,6 @@ GameObject:
   - 33: {fileID: 537805312}
   - 23: {fileID: 537805311}
   - 95: {fileID: 537805310}
-  - 54: {fileID: 537805309}
   - 114: {fileID: 537805313}
   - 65: {fileID: 537805314}
   m_Layer: 0
@@ -4840,21 +4873,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 48
---- !u!54 &537805309
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 537805307}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &537805310
 Animator:
   serializedVersion: 3
@@ -4911,6 +4929,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -4924,6 +4944,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &537805314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4948,7 +4970,6 @@ GameObject:
   - 23: {fileID: 541007527}
   - 95: {fileID: 541007526}
   - 65: {fileID: 541007525}
-  - 54: {fileID: 541007524}
   - 114: {fileID: 541007523}
   m_Layer: 0
   m_Name: white left castle
@@ -4992,21 +5013,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &541007524
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 541007521}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &541007525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5075,7 +5081,6 @@ GameObject:
   - 33: {fileID: 558933136}
   - 23: {fileID: 558933135}
   - 95: {fileID: 558933134}
-  - 54: {fileID: 558933133}
   - 114: {fileID: 558933132}
   - 65: {fileID: 558933131}
   m_Layer: 0
@@ -5132,21 +5137,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &558933133
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 558933129}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &558933134
 Animator:
   serializedVersion: 3
@@ -5203,7 +5193,6 @@ GameObject:
   - 33: {fileID: 562327962}
   - 23: {fileID: 562327961}
   - 95: {fileID: 562327960}
-  - 54: {fileID: 562327959}
   - 114: {fileID: 562327963}
   - 65: {fileID: 562327964}
   m_Layer: 0
@@ -5225,21 +5214,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 25
---- !u!54 &562327959
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562327957}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &562327960
 Animator:
   serializedVersion: 3
@@ -5296,6 +5270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -5309,6 +5285,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &562327964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5452,7 +5430,6 @@ GameObject:
   - 33: {fileID: 578525765}
   - 23: {fileID: 578525764}
   - 95: {fileID: 578525763}
-  - 54: {fileID: 578525762}
   - 114: {fileID: 578525766}
   - 65: {fileID: 578525767}
   m_Layer: 0
@@ -5474,21 +5451,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 54
---- !u!54 &578525762
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 578525760}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &578525763
 Animator:
   serializedVersion: 3
@@ -5545,6 +5507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -5558,6 +5522,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &578525767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5704,7 +5670,6 @@ GameObject:
   - 33: {fileID: 626974165}
   - 23: {fileID: 626974164}
   - 95: {fileID: 626974163}
-  - 54: {fileID: 626974162}
   - 114: {fileID: 626974166}
   - 65: {fileID: 626974161}
   m_Layer: 0
@@ -5738,21 +5703,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &626974162
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 626974159}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &626974163
 Animator:
   serializedVersion: 3
@@ -6024,7 +5974,6 @@ GameObject:
   - 33: {fileID: 667270823}
   - 23: {fileID: 667270822}
   - 95: {fileID: 667270821}
-  - 54: {fileID: 667270820}
   - 114: {fileID: 667270824}
   - 65: {fileID: 667270825}
   m_Layer: 0
@@ -6046,21 +5995,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 58
---- !u!54 &667270820
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 667270818}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &667270821
 Animator:
   serializedVersion: 3
@@ -6117,6 +6051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -6130,6 +6066,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &667270825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6153,7 +6091,6 @@ GameObject:
   - 33: {fileID: 682813376}
   - 23: {fileID: 682813375}
   - 95: {fileID: 682813374}
-  - 54: {fileID: 682813373}
   - 114: {fileID: 682813372}
   - 65: {fileID: 682813371}
   m_Layer: 0
@@ -6210,21 +6147,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &682813373
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682813369}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &682813374
 Animator:
   serializedVersion: 3
@@ -6569,7 +6491,6 @@ GameObject:
   - 33: {fileID: 707161884}
   - 23: {fileID: 707161883}
   - 95: {fileID: 707161882}
-  - 54: {fileID: 707161881}
   - 114: {fileID: 707161885}
   - 65: {fileID: 707161886}
   m_Layer: 0
@@ -6591,21 +6512,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 6
---- !u!54 &707161881
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 707161879}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &707161882
 Animator:
   serializedVersion: 3
@@ -6662,6 +6568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -6675,6 +6583,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &707161886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6886,7 +6796,6 @@ GameObject:
   - 33: {fileID: 771785937}
   - 23: {fileID: 771785936}
   - 95: {fileID: 771785935}
-  - 54: {fileID: 771785934}
   - 114: {fileID: 771785938}
   - 65: {fileID: 771785939}
   m_Layer: 0
@@ -6908,21 +6817,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 30
---- !u!54 &771785934
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 771785932}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &771785935
 Animator:
   serializedVersion: 3
@@ -6979,6 +6873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -6992,6 +6888,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &771785939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7071,7 +6969,6 @@ GameObject:
   - 33: {fileID: 778791091}
   - 23: {fileID: 778791090}
   - 95: {fileID: 778791089}
-  - 54: {fileID: 778791088}
   - 114: {fileID: 778791092}
   - 65: {fileID: 778791093}
   m_Layer: 0
@@ -7093,21 +6990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 16
---- !u!54 &778791088
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778791086}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &778791089
 Animator:
   serializedVersion: 3
@@ -7164,6 +7046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7177,6 +7061,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &778791093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7260,7 +7146,6 @@ GameObject:
   - 33: {fileID: 799345457}
   - 23: {fileID: 799345456}
   - 95: {fileID: 799345455}
-  - 54: {fileID: 799345454}
   - 114: {fileID: 799345458}
   - 65: {fileID: 799345459}
   m_Layer: 0
@@ -7282,21 +7167,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 57
---- !u!54 &799345454
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 799345452}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &799345455
 Animator:
   serializedVersion: 3
@@ -7353,6 +7223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7366,6 +7238,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &799345459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7389,7 +7263,6 @@ GameObject:
   - 33: {fileID: 817108569}
   - 23: {fileID: 817108568}
   - 95: {fileID: 817108567}
-  - 54: {fileID: 817108566}
   - 114: {fileID: 817108570}
   - 65: {fileID: 817108571}
   m_Layer: 0
@@ -7411,21 +7284,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 10
---- !u!54 &817108566
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 817108564}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &817108567
 Animator:
   serializedVersion: 3
@@ -7482,6 +7340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7495,6 +7355,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &817108571
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7518,7 +7380,6 @@ GameObject:
   - 33: {fileID: 829045358}
   - 23: {fileID: 829045357}
   - 95: {fileID: 829045356}
-  - 54: {fileID: 829045355}
   - 114: {fileID: 829045359}
   - 65: {fileID: 829045360}
   m_Layer: 0
@@ -7540,21 +7401,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 4
---- !u!54 &829045355
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 829045353}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &829045356
 Animator:
   serializedVersion: 3
@@ -7611,6 +7457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7624,6 +7472,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &829045360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7715,7 +7565,6 @@ GameObject:
   - 33: {fileID: 841935388}
   - 23: {fileID: 841935387}
   - 95: {fileID: 841935386}
-  - 54: {fileID: 841935385}
   - 114: {fileID: 841935389}
   - 65: {fileID: 841935390}
   m_Layer: 0
@@ -7737,21 +7586,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 47
---- !u!54 &841935385
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 841935383}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &841935386
 Animator:
   serializedVersion: 3
@@ -7808,6 +7642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7821,6 +7657,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &841935390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7844,7 +7682,6 @@ GameObject:
   - 33: {fileID: 847615466}
   - 23: {fileID: 847615465}
   - 95: {fileID: 847615464}
-  - 54: {fileID: 847615463}
   - 114: {fileID: 847615467}
   - 65: {fileID: 847615468}
   m_Layer: 0
@@ -7866,21 +7703,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 13
---- !u!54 &847615463
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 847615461}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &847615464
 Animator:
   serializedVersion: 3
@@ -7937,6 +7759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -7950,6 +7774,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &847615468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7973,7 +7799,6 @@ GameObject:
   - 33: {fileID: 869977228}
   - 23: {fileID: 869977227}
   - 95: {fileID: 869977226}
-  - 54: {fileID: 869977225}
   - 114: {fileID: 869977229}
   - 65: {fileID: 869977230}
   m_Layer: 0
@@ -7995,21 +7820,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 32
---- !u!54 &869977225
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 869977223}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &869977226
 Animator:
   serializedVersion: 3
@@ -8066,6 +7876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -8079,6 +7891,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &869977230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8162,7 +7976,6 @@ GameObject:
   - 33: {fileID: 912735901}
   - 23: {fileID: 912735900}
   - 95: {fileID: 912735899}
-  - 54: {fileID: 912735898}
   - 114: {fileID: 912735897}
   - 65: {fileID: 912735896}
   m_Layer: 0
@@ -8219,21 +8032,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &912735898
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 912735894}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &912735899
 Animator:
   serializedVersion: 3
@@ -8290,7 +8088,6 @@ GameObject:
   - 33: {fileID: 921311999}
   - 23: {fileID: 921311998}
   - 95: {fileID: 921311997}
-  - 54: {fileID: 921311996}
   - 114: {fileID: 921312000}
   - 65: {fileID: 921312001}
   m_Layer: 0
@@ -8312,21 +8109,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 61
---- !u!54 &921311996
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 921311994}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &921311997
 Animator:
   serializedVersion: 3
@@ -8383,6 +8165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -8396,6 +8180,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &921312001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8487,7 +8273,6 @@ GameObject:
   - 33: {fileID: 949366194}
   - 23: {fileID: 949366193}
   - 95: {fileID: 949366192}
-  - 54: {fileID: 949366191}
   - 114: {fileID: 949366195}
   - 65: {fileID: 949366196}
   m_Layer: 0
@@ -8509,21 +8294,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 60
---- !u!54 &949366191
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 949366189}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &949366192
 Animator:
   serializedVersion: 3
@@ -8580,6 +8350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -8593,6 +8365,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &949366196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8812,7 +8586,6 @@ GameObject:
   - 33: {fileID: 1005696545}
   - 23: {fileID: 1005696544}
   - 95: {fileID: 1005696543}
-  - 54: {fileID: 1005696542}
   - 114: {fileID: 1005696547}
   - 65: {fileID: 1005696548}
   m_Layer: 0
@@ -8822,21 +8595,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1005696542
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1005696541}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1005696543
 Animator:
   serializedVersion: 3
@@ -8905,6 +8663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -8918,6 +8678,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1005696548
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9313,7 +9075,6 @@ GameObject:
   - 33: {fileID: 1044366989}
   - 23: {fileID: 1044366988}
   - 95: {fileID: 1044366987}
-  - 54: {fileID: 1044366986}
   - 114: {fileID: 1044366990}
   - 65: {fileID: 1044366991}
   m_Layer: 0
@@ -9335,21 +9096,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 51
---- !u!54 &1044366986
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044366984}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1044366987
 Animator:
   serializedVersion: 3
@@ -9406,6 +9152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -9419,6 +9167,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1044366991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9442,7 +9192,6 @@ GameObject:
   - 33: {fileID: 1058861303}
   - 23: {fileID: 1058861302}
   - 95: {fileID: 1058861301}
-  - 54: {fileID: 1058861300}
   - 114: {fileID: 1058861304}
   - 65: {fileID: 1058861299}
   m_Layer: 0
@@ -9476,21 +9225,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &1058861300
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1058861297}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1058861301
 Animator:
   serializedVersion: 3
@@ -9570,7 +9304,6 @@ GameObject:
   - 33: {fileID: 1060874216}
   - 23: {fileID: 1060874215}
   - 95: {fileID: 1060874214}
-  - 54: {fileID: 1060874213}
   - 114: {fileID: 1060874212}
   - 65: {fileID: 1060874211}
   m_Layer: 0
@@ -9627,21 +9360,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1060874213
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1060874209}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1060874214
 Animator:
   serializedVersion: 3
@@ -9698,7 +9416,6 @@ GameObject:
   - 33: {fileID: 1064992121}
   - 23: {fileID: 1064992120}
   - 95: {fileID: 1064992119}
-  - 54: {fileID: 1064992118}
   - 114: {fileID: 1064992122}
   - 65: {fileID: 1064992123}
   m_Layer: 0
@@ -9720,21 +9437,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 46
---- !u!54 &1064992118
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1064992116}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1064992119
 Animator:
   serializedVersion: 3
@@ -9791,6 +9493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -9804,6 +9508,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1064992123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9876,6 +9582,72 @@ Prefab:
   m_RootGameObject: {fileID: 1817037479}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1075228306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1075228307}
+  - 222: {fileID: 1075228309}
+  - 114: {fileID: 1075228308}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1075228307
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075228306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1323627930}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1075228308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075228306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 16
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Black Soldiers
+--- !u!222 &1075228309
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075228306}
 --- !u!1001 &1091270663
 Prefab:
   m_ObjectHideFlags: 0
@@ -9987,7 +9759,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .00173010537, g: .235294104, b: .119317546, a: .0196078438}
+  m_BackGroundColor: {r: .0785034448, g: .33379972, b: .485294104, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -10058,7 +9830,6 @@ GameObject:
   - 33: {fileID: 1111410941}
   - 23: {fileID: 1111410940}
   - 95: {fileID: 1111410939}
-  - 54: {fileID: 1111410938}
   - 114: {fileID: 1111410944}
   - 65: {fileID: 1111410943}
   m_Layer: 0
@@ -10068,21 +9839,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1111410938
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111410937}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1111410939
 Animator:
   serializedVersion: 3
@@ -10306,7 +10062,6 @@ GameObject:
   - 33: {fileID: 1155366247}
   - 23: {fileID: 1155366246}
   - 95: {fileID: 1155366245}
-  - 54: {fileID: 1155366244}
   - 114: {fileID: 1155366243}
   - 65: {fileID: 1155366242}
   m_Layer: 0
@@ -10363,21 +10118,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1155366244
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1155366240}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1155366245
 Animator:
   serializedVersion: 3
@@ -10491,6 +10231,140 @@ Prefab:
   m_RootGameObject: {fileID: 1500604114}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1164642280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1164642281}
+  - 222: {fileID: 1164642283}
+  - 114: {fileID: 1164642282}
+  - 114: {fileID: 1164642284}
+  m_Layer: 0
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1164642281
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164642280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.83709592e-10}
+  m_LocalScale: {x: 1, y: 10.5292959, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1323627930}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -8.68507923e-05, y: -157.999985}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1164642282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164642280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .39199999}
+  m_Sprite: {fileID: 21300000, guid: b9d658360f27bc2468ff117a611ab3b9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1164642283
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164642280}
+--- !u!114 &1164642284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164642280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349170e6fc0c48245b21b074a95c5068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1191274114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1191274115}
+  - 222: {fileID: 1191274117}
+  - 114: {fileID: 1191274116}
+  m_Layer: 0
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1191274115
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191274114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.075266, y: .780404031, z: 1}
+  m_Children: []
+  m_Father: {fileID: 54158471}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1191274116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191274114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .158823371, g: 0, b: .79411763, a: 1}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1191274117
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191274114}
 --- !u!1001 &1195338589
 Prefab:
   m_ObjectHideFlags: 0
@@ -10551,6 +10425,99 @@ Prefab:
   m_RootGameObject: {fileID: 164794229}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1197358854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1197358858}
+  - 223: {fileID: 1197358857}
+  - 114: {fileID: 1197358856}
+  - 114: {fileID: 1197358855}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1197358855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197358854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Priority: 3
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1197358856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197358854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1197358857
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197358854}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 0
+  m_Camera: {fileID: 1099887416}
+  m_PlaneDistance: 10
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!224 &1197358858
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197358854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1701497108}
+  - {fileID: 236533860}
+  - {fileID: 1428285073}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1208724725
 GameObject:
   m_ObjectHideFlags: 0
@@ -10562,7 +10529,6 @@ GameObject:
   - 33: {fileID: 1208724730}
   - 23: {fileID: 1208724729}
   - 95: {fileID: 1208724728}
-  - 54: {fileID: 1208724727}
   - 114: {fileID: 1208724731}
   - 65: {fileID: 1208724732}
   m_Layer: 0
@@ -10584,21 +10550,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 38
---- !u!54 &1208724727
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1208724725}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1208724728
 Animator:
   serializedVersion: 3
@@ -10655,6 +10606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -10668,6 +10621,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1208724732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10760,7 +10715,6 @@ GameObject:
   - 23: {fileID: 1220977549}
   - 95: {fileID: 1220977548}
   - 65: {fileID: 1220977547}
-  - 54: {fileID: 1220977546}
   - 114: {fileID: 1220977545}
   m_Layer: 0
   m_Name: black queen
@@ -10804,21 +10758,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1220977546
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220977543}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1220977547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10887,7 +10826,6 @@ GameObject:
   - 33: {fileID: 1234362338}
   - 23: {fileID: 1234362337}
   - 95: {fileID: 1234362336}
-  - 54: {fileID: 1234362335}
   - 65: {fileID: 1234362334}
   - 114: {fileID: 1234362333}
   m_Layer: 0
@@ -10944,21 +10882,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.01894498, y: 2.01894498, z: 49.6948204}
   m_Center: {x: -4.76837158e-07, y: 6.87166117e-14, z: 23.8474083}
---- !u!54 &1234362335
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1234362331}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1234362336
 Animator:
   serializedVersion: 3
@@ -11219,7 +11142,6 @@ GameObject:
   - 33: {fileID: 1262025585}
   - 23: {fileID: 1262025584}
   - 95: {fileID: 1262025583}
-  - 54: {fileID: 1262025582}
   - 114: {fileID: 1262025586}
   - 65: {fileID: 1262025587}
   m_Layer: 0
@@ -11241,21 +11163,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 44
---- !u!54 &1262025582
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1262025580}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1262025583
 Animator:
   serializedVersion: 3
@@ -11312,6 +11219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -11325,6 +11234,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1262025587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11349,7 +11260,6 @@ GameObject:
   - 23: {fileID: 1278583812}
   - 95: {fileID: 1278583811}
   - 114: {fileID: 1278583810}
-  - 54: {fileID: 1278583809}
   - 65: {fileID: 1278583808}
   m_Layer: 0
   m_Name: black right bishop
@@ -11370,21 +11280,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.00996208, y: 2.00996304, z: 53.1377182}
   m_Center: {x: 0, y: -1.01327942e-06, z: 25.5688629}
---- !u!54 &1278583809
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1278583807}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1278583810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11465,6 +11360,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 84
+--- !u!1 &1291515000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1291515001}
+  - 222: {fileID: 1291515004}
+  - 114: {fileID: 1291515003}
+  - 114: {fileID: 1291515002}
+  m_Layer: 0
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1291515001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291515000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.83709592e-10}
+  m_LocalScale: {x: 1, y: 10.5292959, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1317079294}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -8.68507923e-05, y: -157.999985}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1291515002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291515000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349170e6fc0c48245b21b074a95c5068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1291515003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291515000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .39199999}
+  m_Sprite: {fileID: 21300000, guid: b9d658360f27bc2468ff117a611ab3b9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1291515004
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291515000}
 --- !u!1001 &1298444040
 Prefab:
   m_ObjectHideFlags: 0
@@ -11661,6 +11629,123 @@ Prefab:
   m_RootGameObject: {fileID: 421684708}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1317079293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1317079294}
+  - 222: {fileID: 1317079297}
+  - 114: {fileID: 1317079296}
+  - 114: {fileID: 1317079295}
+  m_Layer: 0
+  m_Name: white pieces
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1317079294
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317079293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .702758849, y: 8.38605881, z: 1.04493344}
+  m_Children:
+  - {fileID: 2058414111}
+  - {fileID: 1291515001}
+  m_Father: {fileID: 236533860}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 72, y: -212}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1317079295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317079293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .713235259, g: .445772052, b: .445772052, a: 1}
+    m_PressedColor: {r: .867647052, g: .146734416, b: .146734416, a: 1}
+    m_DisabledColor: {r: .191176474, g: .132136688, b: .132136688, a: .501960814}
+    m_ColorMultiplier: 2.26999998
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1317079296}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1291515002}
+        m_MethodName: pannelappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1317079296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317079293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .984313726, g: .984313726, b: .984313726, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1317079297
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1317079293}
 --- !u!1001 &1320057961
 Prefab:
   m_ObjectHideFlags: 0
@@ -11721,79 +11806,123 @@ Prefab:
   m_RootGameObject: {fileID: 841935383}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1320359043
+--- !u!1 &1323627929
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1320359047}
-  - 114: {fileID: 1320359046}
-  - 114: {fileID: 1320359045}
-  - 114: {fileID: 1320359044}
+  - 224: {fileID: 1323627930}
+  - 222: {fileID: 1323627933}
+  - 114: {fileID: 1323627932}
+  - 114: {fileID: 1323627931}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Black Pieces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1320359044
-MonoBehaviour:
+--- !u!224 &1323627930
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320359043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
---- !u!114 &1320359045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320359043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_AllowActivationOnMobileDevice: 0
---- !u!114 &1320359046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320359043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &1320359047
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320359043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1323627929}
+  m_LocalRotation: {x: -2.36807125e-07, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_LocalScale: {x: .702758789, y: 8.38605595, z: 1.04493296}
+  m_Children:
+  - {fileID: 1075228307}
+  - {fileID: 1164642281}
+  m_Father: {fileID: 236533860}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 1, y: .5}
+  m_AnchorMax: {x: 1, y: .5}
+  m_AnchoredPosition: {x: -70, y: -12}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1323627931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323627929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .713235259, g: .445772052, b: .445772052, a: 1}
+    m_PressedColor: {r: .867647052, g: .146734416, b: .146734416, a: 1}
+    m_DisabledColor: {r: .191176474, g: .132136688, b: .132136688, a: .501960814}
+    m_ColorMultiplier: 2.26999998
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1323627932}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1164642284}
+        m_MethodName: pannelappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1323627932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323627929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .984313726, g: .984313726, b: .984313726, a: 1}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1323627933
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323627929}
 --- !u!1001 &1331142661
 Prefab:
   m_ObjectHideFlags: 0
@@ -11995,7 +12124,6 @@ GameObject:
   - 95: {fileID: 1371000597}
   - 114: {fileID: 1371000596}
   - 65: {fileID: 1371000595}
-  - 54: {fileID: 1371000594}
   m_Layer: 0
   m_Name: white left bishop
   m_TagString: piece
@@ -12003,21 +12131,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1371000594
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1371000593}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1371000595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12122,7 +12235,6 @@ GameObject:
   - 23: {fileID: 1396384539}
   - 95: {fileID: 1396384538}
   - 65: {fileID: 1396384537}
-  - 54: {fileID: 1396384536}
   - 114: {fileID: 1396384535}
   m_Layer: 0
   m_Name: black queen
@@ -12166,21 +12278,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1396384536
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396384533}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1396384537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12249,7 +12346,6 @@ GameObject:
   - 33: {fileID: 1397998866}
   - 23: {fileID: 1397998865}
   - 95: {fileID: 1397998864}
-  - 54: {fileID: 1397998863}
   - 114: {fileID: 1397998862}
   - 65: {fileID: 1397998861}
   m_Layer: 0
@@ -12306,21 +12402,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1397998863
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1397998859}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1397998864
 Animator:
   serializedVersion: 3
@@ -12377,7 +12458,6 @@ GameObject:
   - 33: {fileID: 1405550180}
   - 23: {fileID: 1405550179}
   - 95: {fileID: 1405550178}
-  - 54: {fileID: 1405550177}
   - 114: {fileID: 1405550181}
   - 65: {fileID: 1405550176}
   m_Layer: 0
@@ -12411,21 +12491,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &1405550177
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1405550174}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1405550178
 Animator:
   serializedVersion: 3
@@ -12494,6 +12559,90 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
+--- !u!1 &1410693252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1410693253}
+  - 114: {fileID: 1410693254}
+  m_Layer: 0
+  m_Name: Slider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1410693253
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410693252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .824321747, y: .100286506, z: 1}
+  m_Children:
+  - {fileID: 120905313}
+  - {fileID: 1884579031}
+  - {fileID: 54158471}
+  m_Father: {fileID: 1944242458}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 7.5}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1410693254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1410693252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1191274116}
+  m_FillRect: {fileID: 81475797}
+  m_HandleRect: {fileID: 1191274115}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1427318139
 GameObject:
   m_ObjectHideFlags: 0
@@ -12505,7 +12654,6 @@ GameObject:
   - 33: {fileID: 1427318146}
   - 23: {fileID: 1427318145}
   - 95: {fileID: 1427318144}
-  - 54: {fileID: 1427318143}
   - 114: {fileID: 1427318142}
   - 65: {fileID: 1427318141}
   m_Layer: 0
@@ -12562,21 +12710,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1427318143
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1427318139}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1427318144
 Animator:
   serializedVersion: 3
@@ -12622,6 +12755,79 @@ MeshFilter:
   m_PrefabInternal: {fileID: 455403331}
   m_GameObject: {fileID: 1427318139}
   m_Mesh: {fileID: 4300000, guid: 04eff77d4792f454baff33085b61047b, type: 3}
+--- !u!1 &1428285069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1428285073}
+  - 114: {fileID: 1428285072}
+  - 114: {fileID: 1428285071}
+  - 114: {fileID: 1428285070}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1428285070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428285069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowActivationOnStandalone: 0
+--- !u!114 &1428285071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428285069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_AllowActivationOnMobileDevice: 0
+--- !u!114 &1428285072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428285069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &1428285073
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1428285069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -414.5, y: -200.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1197358858}
+  m_RootOrder: 2
 --- !u!1001 &1434878494
 Prefab:
   m_ObjectHideFlags: 0
@@ -12693,7 +12899,6 @@ GameObject:
   - 33: {fileID: 1446374364}
   - 23: {fileID: 1446374363}
   - 95: {fileID: 1446374362}
-  - 54: {fileID: 1446374361}
   - 65: {fileID: 1446374360}
   - 114: {fileID: 1446374359}
   m_Layer: 0
@@ -12738,21 +12943,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.01894498, y: 2.01894498, z: 49.6948204}
   m_Center: {x: -4.76837158e-07, y: 6.87166117e-14, z: 23.8474083}
---- !u!54 &1446374361
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446374358}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1446374362
 Animator:
   serializedVersion: 3
@@ -12821,7 +13011,6 @@ GameObject:
   - 33: {fileID: 1469008323}
   - 23: {fileID: 1469008322}
   - 95: {fileID: 1469008321}
-  - 54: {fileID: 1469008320}
   - 114: {fileID: 1469008324}
   - 65: {fileID: 1469008325}
   m_Layer: 0
@@ -12843,21 +13032,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 19
---- !u!54 &1469008320
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1469008318}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1469008321
 Animator:
   serializedVersion: 3
@@ -12914,6 +13088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -12927,6 +13103,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1469008325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12950,7 +13128,6 @@ GameObject:
   - 33: {fileID: 1471833399}
   - 23: {fileID: 1471833398}
   - 95: {fileID: 1471833397}
-  - 54: {fileID: 1471833396}
   - 114: {fileID: 1471833395}
   - 65: {fileID: 1471833394}
   m_Layer: 0
@@ -13007,21 +13184,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1471833396
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1471833392}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1471833397
 Animator:
   serializedVersion: 3
@@ -13264,7 +13426,6 @@ GameObject:
   - 95: {fileID: 1500604118}
   - 114: {fileID: 1500604117}
   - 65: {fileID: 1500604116}
-  - 54: {fileID: 1500604115}
   m_Layer: 0
   m_Name: white right bishop
   m_TagString: piece
@@ -13272,21 +13433,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1500604115
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1500604114}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1500604116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13458,7 +13604,6 @@ GameObject:
   - 33: {fileID: 1504994471}
   - 23: {fileID: 1504994470}
   - 95: {fileID: 1504994469}
-  - 54: {fileID: 1504994468}
   - 114: {fileID: 1504994472}
   - 65: {fileID: 1504994473}
   m_Layer: 0
@@ -13480,21 +13625,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 37
---- !u!54 &1504994468
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1504994466}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1504994469
 Animator:
   serializedVersion: 3
@@ -13551,6 +13681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -13564,6 +13696,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1504994473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13647,7 +13781,6 @@ GameObject:
   - 33: {fileID: 1556581473}
   - 23: {fileID: 1556581472}
   - 95: {fileID: 1556581471}
-  - 54: {fileID: 1556581470}
   - 114: {fileID: 1556581474}
   - 65: {fileID: 1556581475}
   m_Layer: 0
@@ -13669,21 +13802,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 55
---- !u!54 &1556581470
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1556581468}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1556581471
 Animator:
   serializedVersion: 3
@@ -13740,6 +13858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -13753,6 +13873,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1556581475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13904,7 +14026,6 @@ GameObject:
   - 33: {fileID: 1582463081}
   - 23: {fileID: 1582463080}
   - 95: {fileID: 1582463079}
-  - 54: {fileID: 1582463078}
   - 114: {fileID: 1582463082}
   - 65: {fileID: 1582463083}
   m_Layer: 0
@@ -13926,21 +14047,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 27
---- !u!54 &1582463078
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1582463076}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1582463079
 Animator:
   serializedVersion: 3
@@ -13997,6 +14103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -14010,6 +14118,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1582463083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14153,7 +14263,6 @@ GameObject:
   - 33: {fileID: 1622743659}
   - 23: {fileID: 1622743658}
   - 95: {fileID: 1622743657}
-  - 54: {fileID: 1622743656}
   - 114: {fileID: 1622743660}
   - 65: {fileID: 1622743661}
   m_Layer: 0
@@ -14175,21 +14284,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 33
---- !u!54 &1622743656
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1622743654}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1622743657
 Animator:
   serializedVersion: 3
@@ -14246,6 +14340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -14259,6 +14355,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1622743661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14342,7 +14440,6 @@ GameObject:
   - 33: {fileID: 1632213644}
   - 23: {fileID: 1632213643}
   - 95: {fileID: 1632213642}
-  - 54: {fileID: 1632213641}
   - 114: {fileID: 1632213645}
   - 65: {fileID: 1632213640}
   m_Layer: 0
@@ -14376,21 +14473,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &1632213641
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632213638}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1632213642
 Animator:
   serializedVersion: 3
@@ -14470,7 +14552,6 @@ GameObject:
   - 33: {fileID: 1633109844}
   - 23: {fileID: 1633109843}
   - 95: {fileID: 1633109842}
-  - 54: {fileID: 1633109841}
   - 114: {fileID: 1633109839}
   - 65: {fileID: 1633109840}
   m_Layer: 0
@@ -14527,21 +14608,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &1633109841
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1633109837}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1633109842
 Animator:
   serializedVersion: 3
@@ -14598,7 +14664,6 @@ GameObject:
   - 33: {fileID: 1635378902}
   - 23: {fileID: 1635378901}
   - 95: {fileID: 1635378900}
-  - 54: {fileID: 1635378899}
   - 114: {fileID: 1635378903}
   - 65: {fileID: 1635378904}
   m_Layer: 0
@@ -14620,21 +14685,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 2
---- !u!54 &1635378899
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1635378897}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1635378900
 Animator:
   serializedVersion: 3
@@ -14691,6 +14741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -14704,6 +14756,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1635378904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14787,7 +14841,6 @@ GameObject:
   - 33: {fileID: 1674060620}
   - 23: {fileID: 1674060619}
   - 95: {fileID: 1674060618}
-  - 54: {fileID: 1674060617}
   - 114: {fileID: 1674060621}
   - 65: {fileID: 1674060622}
   m_Layer: 0
@@ -14809,21 +14862,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 5
---- !u!54 &1674060617
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1674060615}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1674060618
 Animator:
   serializedVersion: 3
@@ -14880,6 +14918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -14893,6 +14933,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1674060622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14916,7 +14958,6 @@ GameObject:
   - 33: {fileID: 1687908867}
   - 23: {fileID: 1687908866}
   - 95: {fileID: 1687908865}
-  - 54: {fileID: 1687908864}
   - 114: {fileID: 1687908868}
   - 65: {fileID: 1687908869}
   m_Layer: 0
@@ -14938,21 +14979,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 21
---- !u!54 &1687908864
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1687908862}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1687908865
 Animator:
   serializedVersion: 3
@@ -15009,6 +15035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -15022,6 +15050,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1687908869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15102,6 +15132,122 @@ Prefab:
   m_RootGameObject: {fileID: 1901157608}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1701497107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1701497108}
+  - 222: {fileID: 1701497111}
+  - 114: {fileID: 1701497110}
+  - 114: {fileID: 1701497109}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1701497108
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701497107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .391355753, y: 1.55004191, z: 1}
+  m_Children:
+  - {fileID: 1944242458}
+  m_Father: {fileID: 1197358858}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -35.7999992, y: 33.2000008}
+  m_SizeDelta: {x: 149, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1701497109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701497107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_ColorMultiplier: 1
+    m_FadeDuration: .100000001
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1701497110}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1944242457}
+        m_MethodName: pannelappear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1701497110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701497107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bbcfbc3b8cf4f094892046ce5c078d2e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1701497111
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701497107}
 --- !u!1001 &1707340660
 Prefab:
   m_ObjectHideFlags: 0
@@ -15244,7 +15390,6 @@ GameObject:
   - 33: {fileID: 1716166548}
   - 23: {fileID: 1716166547}
   - 95: {fileID: 1716166546}
-  - 54: {fileID: 1716166545}
   - 114: {fileID: 1716166549}
   - 65: {fileID: 1716166550}
   m_Layer: 0
@@ -15266,21 +15411,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 35
---- !u!54 &1716166545
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1716166543}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1716166546
 Animator:
   serializedVersion: 3
@@ -15337,6 +15467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -15350,6 +15482,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1716166550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15433,7 +15567,6 @@ GameObject:
   - 33: {fileID: 1744165614}
   - 23: {fileID: 1744165613}
   - 95: {fileID: 1744165612}
-  - 54: {fileID: 1744165611}
   - 114: {fileID: 1744165615}
   - 65: {fileID: 1744165616}
   m_Layer: 0
@@ -15455,21 +15588,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 29
---- !u!54 &1744165611
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1744165609}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1744165612
 Animator:
   serializedVersion: 3
@@ -15526,6 +15644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -15539,6 +15659,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1744165616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15562,7 +15684,6 @@ GameObject:
   - 33: {fileID: 1747282472}
   - 23: {fileID: 1747282471}
   - 95: {fileID: 1747282470}
-  - 54: {fileID: 1747282469}
   - 114: {fileID: 1747282473}
   - 65: {fileID: 1747282474}
   m_Layer: 0
@@ -15584,21 +15705,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 43
---- !u!54 &1747282469
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1747282467}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1747282470
 Animator:
   serializedVersion: 3
@@ -15655,6 +15761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -15668,6 +15776,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1747282474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15692,7 +15802,6 @@ GameObject:
   - 23: {fileID: 1747688966}
   - 95: {fileID: 1747688965}
   - 65: {fileID: 1747688964}
-  - 54: {fileID: 1747688963}
   - 114: {fileID: 1747688962}
   m_Layer: 0
   m_Name: black right castle
@@ -15736,21 +15845,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1747688963
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1747688960}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1747688964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15887,7 +15981,6 @@ GameObject:
   - 33: {fileID: 1761426580}
   - 23: {fileID: 1761426579}
   - 95: {fileID: 1761426578}
-  - 54: {fileID: 1761426577}
   - 114: {fileID: 1761426581}
   - 65: {fileID: 1761426582}
   m_Layer: 0
@@ -15909,21 +16002,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 18
---- !u!54 &1761426577
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761426575}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1761426578
 Animator:
   serializedVersion: 3
@@ -15980,6 +16058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -15993,6 +16073,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1761426582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16084,7 +16166,6 @@ GameObject:
   - 33: {fileID: 1817037484}
   - 23: {fileID: 1817037483}
   - 95: {fileID: 1817037482}
-  - 54: {fileID: 1817037481}
   - 114: {fileID: 1817037485}
   - 65: {fileID: 1817037486}
   m_Layer: 0
@@ -16106,21 +16187,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 53
---- !u!54 &1817037481
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1817037479}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1817037482
 Animator:
   serializedVersion: 3
@@ -16177,6 +16243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -16190,6 +16258,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1817037486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16334,7 +16404,6 @@ GameObject:
   - 23: {fileID: 1863186763}
   - 95: {fileID: 1863186762}
   - 65: {fileID: 1863186761}
-  - 54: {fileID: 1863186760}
   - 114: {fileID: 1863186759}
   m_Layer: 0
   m_Name: white right castle
@@ -16378,21 +16447,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1863186760
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1863186757}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1863186761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16461,7 +16515,6 @@ GameObject:
   - 33: {fileID: 1869692644}
   - 23: {fileID: 1869692643}
   - 95: {fileID: 1869692642}
-  - 54: {fileID: 1869692641}
   - 114: {fileID: 1869692640}
   - 65: {fileID: 1869692639}
   m_Layer: 0
@@ -16518,21 +16571,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1869692641
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1869692637}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1869692642
 Animator:
   serializedVersion: 3
@@ -16589,7 +16627,6 @@ GameObject:
   - 33: {fileID: 1870164929}
   - 23: {fileID: 1870164928}
   - 95: {fileID: 1870164927}
-  - 54: {fileID: 1870164926}
   - 114: {fileID: 1870164930}
   - 65: {fileID: 1870164931}
   m_Layer: 0
@@ -16611,21 +16648,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 22
---- !u!54 &1870164926
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870164924}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1870164927
 Animator:
   serializedVersion: 3
@@ -16682,6 +16704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -16695,6 +16719,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1870164931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16707,6 +16733,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.00000191, z: 2.00000095}
   m_Center: {x: 0, y: -4.76837386e-07, z: 0}
+--- !u!1 &1884579030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1884579031}
+  m_Layer: 0
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1884579031
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884579030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 81475797}
+  m_Father: {fileID: 1410693253}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: .25}
+  m_AnchorMax: {x: 1, y: .75}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: .5, y: .5}
 --- !u!1 &1901157608
 GameObject:
   m_ObjectHideFlags: 0
@@ -16719,7 +16778,6 @@ GameObject:
   - 23: {fileID: 1901157614}
   - 95: {fileID: 1901157613}
   - 65: {fileID: 1901157612}
-  - 54: {fileID: 1901157611}
   - 114: {fileID: 1901157610}
   m_Layer: 0
   m_Name: white left castle
@@ -16763,21 +16821,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1901157611
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1901157608}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1901157612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16846,7 +16889,6 @@ GameObject:
   - 33: {fileID: 1912284459}
   - 23: {fileID: 1912284458}
   - 95: {fileID: 1912284457}
-  - 54: {fileID: 1912284456}
   - 114: {fileID: 1912284455}
   - 65: {fileID: 1912284454}
   m_Layer: 0
@@ -16903,21 +16945,6 @@ MonoBehaviour:
   killmoveinstance: []
   validcount: 0
   killcount: 0
---- !u!54 &1912284456
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1912284452}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1912284457
 Animator:
   serializedVersion: 3
@@ -16974,7 +17001,6 @@ GameObject:
   - 33: {fileID: 1915134892}
   - 23: {fileID: 1915134891}
   - 95: {fileID: 1915134890}
-  - 54: {fileID: 1915134889}
   - 114: {fileID: 1915134893}
   - 65: {fileID: 1915134894}
   m_Layer: 0
@@ -16996,21 +17022,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 20
---- !u!54 &1915134889
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1915134887}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1915134890
 Animator:
   serializedVersion: 3
@@ -17067,6 +17078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -17080,6 +17093,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1915134894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17343,7 +17358,6 @@ GameObject:
   - 33: {fileID: 1935144866}
   - 23: {fileID: 1935144865}
   - 95: {fileID: 1935144864}
-  - 54: {fileID: 1935144863}
   - 114: {fileID: 1935144867}
   - 65: {fileID: 1935144868}
   m_Layer: 0
@@ -17365,21 +17379,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 63
---- !u!54 &1935144863
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1935144861}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1935144864
 Animator:
   serializedVersion: 3
@@ -17436,6 +17435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -17449,6 +17450,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1935144868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17461,6 +17464,81 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.00000191, z: 2.00000095}
   m_Center: {x: 0, y: -4.76837386e-07, z: 0}
+--- !u!1 &1944242456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1944242458}
+  - 222: {fileID: 1944242460}
+  - 114: {fileID: 1944242459}
+  - 114: {fileID: 1944242457}
+  m_Layer: 0
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1944242457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944242456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349170e6fc0c48245b21b074a95c5068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1944242458
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944242456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.14268804, y: 6.01726627, z: 1}
+  m_Children:
+  - {fileID: 321377293}
+  - {fileID: 1410693253}
+  m_Father: {fileID: 1701497108}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -222, y: 81.8000031}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1944242459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944242456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .39199999}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1944242460
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944242456}
 --- !u!1001 &1981379831
 Prefab:
   m_ObjectHideFlags: 0
@@ -17532,7 +17610,6 @@ GameObject:
   - 33: {fileID: 1982945236}
   - 23: {fileID: 1982945235}
   - 95: {fileID: 1982945234}
-  - 54: {fileID: 1982945233}
   - 114: {fileID: 1982945237}
   - 65: {fileID: 1982945238}
   m_Layer: 0
@@ -17554,21 +17631,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 45
---- !u!54 &1982945233
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1982945231}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &1982945234
 Animator:
   serializedVersion: 3
@@ -17625,6 +17687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -17638,6 +17702,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &1982945238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17662,7 +17728,6 @@ GameObject:
   - 23: {fileID: 1998511968}
   - 95: {fileID: 1998511967}
   - 114: {fileID: 1998511966}
-  - 54: {fileID: 1998511965}
   - 65: {fileID: 1998511964}
   m_Layer: 0
   m_Name: black left bihop
@@ -17683,21 +17748,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.00996208, y: 2.00996304, z: 53.1377182}
   m_Center: {x: 0, y: -1.01327942e-06, z: 25.5688629}
---- !u!54 &1998511965
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1998511963}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1998511966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17778,6 +17828,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 85
+--- !u!1 &2007146434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2007146435}
+  - 222: {fileID: 2007146437}
+  - 114: {fileID: 2007146436}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2007146435
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007146434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 321377293}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2007146436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007146434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Reset
+--- !u!222 &2007146437
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007146434}
 --- !u!1001 &2010017266
 Prefab:
   m_ObjectHideFlags: 0
@@ -17909,7 +18025,6 @@ GameObject:
   - 33: {fileID: 2046504504}
   - 23: {fileID: 2046504503}
   - 95: {fileID: 2046504502}
-  - 54: {fileID: 2046504501}
   - 114: {fileID: 2046504505}
   - 65: {fileID: 2046504506}
   m_Layer: 0
@@ -17931,21 +18046,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 28
---- !u!54 &2046504501
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2046504499}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2046504502
 Animator:
   serializedVersion: 3
@@ -18002,6 +18102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -18015,6 +18117,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2046504506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18027,6 +18131,72 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2.00000191, z: 2.00000095}
   m_Center: {x: 0, y: -4.76837386e-07, z: 0}
+--- !u!1 &2058414110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2058414111}
+  - 222: {fileID: 2058414113}
+  - 114: {fileID: 2058414112}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2058414111
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058414110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1317079294}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2058414112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058414110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .195999995, g: .195999995, b: .195999995, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 16
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: White Soldiers
+--- !u!222 &2058414113
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058414110}
 --- !u!1001 &2081432958
 Prefab:
   m_ObjectHideFlags: 0
@@ -18226,7 +18396,6 @@ GameObject:
   - 33: {fileID: 2085446833}
   - 23: {fileID: 2085446832}
   - 95: {fileID: 2085446831}
-  - 54: {fileID: 2085446830}
   - 114: {fileID: 2085446834}
   - 65: {fileID: 2085446835}
   m_Layer: 0
@@ -18248,21 +18417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 41
---- !u!54 &2085446830
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2085446828}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2085446831
 Animator:
   serializedVersion: 3
@@ -18319,6 +18473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -18332,6 +18488,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2085446835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18423,7 +18581,6 @@ GameObject:
   - 33: {fileID: 2116035295}
   - 23: {fileID: 2116035294}
   - 95: {fileID: 2116035293}
-  - 54: {fileID: 2116035292}
   - 114: {fileID: 2116035296}
   - 65: {fileID: 2116035297}
   m_Layer: 0
@@ -18445,21 +18602,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 17
---- !u!54 &2116035292
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2116035290}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2116035293
 Animator:
   serializedVersion: 3
@@ -18516,6 +18658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -18529,6 +18673,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2116035297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18552,7 +18698,6 @@ GameObject:
   - 33: {fileID: 2121716496}
   - 23: {fileID: 2121716495}
   - 95: {fileID: 2121716494}
-  - 54: {fileID: 2121716493}
   - 114: {fileID: 2121716497}
   - 65: {fileID: 2121716492}
   m_Layer: 0
@@ -18586,21 +18731,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98799002, y: 1.98799109, z: 56.0969429}
   m_Center: {x: 0, y: 0, z: 27.0484695}
---- !u!54 &2121716493
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2121716490}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2121716494
 Animator:
   serializedVersion: 3
@@ -18748,7 +18878,6 @@ GameObject:
   - 33: {fileID: 2130820193}
   - 23: {fileID: 2130820192}
   - 95: {fileID: 2130820191}
-  - 54: {fileID: 2130820190}
   - 114: {fileID: 2130820194}
   - 65: {fileID: 2130820195}
   m_Layer: 0
@@ -18770,21 +18899,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 52
---- !u!54 &2130820190
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2130820188}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2130820191
 Animator:
   serializedVersion: 3
@@ -18841,6 +18955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -18854,6 +18970,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2130820195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18877,7 +18995,6 @@ GameObject:
   - 33: {fileID: 2131489207}
   - 23: {fileID: 2131489206}
   - 95: {fileID: 2131489205}
-  - 54: {fileID: 2131489204}
   - 114: {fileID: 2131489208}
   - 65: {fileID: 2131489209}
   m_Layer: 0
@@ -18899,21 +19016,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706560005}
   m_RootOrder: 26
---- !u!54 &2131489204
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2131489202}
-  serializedVersion: 2
-  m_Mass: .5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &2131489205
 Animator:
   serializedVersion: 3
@@ -18970,6 +19072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56a0583a35587b4893704ce7b123cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: {fileID: 0}
+  temp: {x: 0, y: 0, z: 0}
   row: 0
   col: 0
   colour: 0
@@ -18983,6 +19087,8 @@ MonoBehaviour:
   top: {fileID: 0}
   chessboard: {fileID: 0}
   castlingtile: 0
+  moved: 0
+  iscastled: 0
 --- !u!65 &2131489209
 BoxCollider:
   m_ObjectHideFlags: 0

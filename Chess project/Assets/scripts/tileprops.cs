@@ -3,6 +3,8 @@ using System.Collections;
 
 public class tileprops : MonoBehaviour
 {
+		public GameObject x = null;
+		public Vector3 temp;
 		public  int row;
 		public  int col;
 		public bool colour;
@@ -12,9 +14,8 @@ public class tileprops : MonoBehaviour
 		public Color defcol, selectcol, validcol, killcol;
 		public GameObject top = null;
 		public GameObject chessboard ;
-		GameObject x = null;
-		Vector3 temp;
 		public int castlingtile = 0;
+		public bool moved=false,iscastled = false;
 		// Use this for initialization
 		void Awake ()
 		{
@@ -40,77 +41,80 @@ public class tileprops : MonoBehaviour
 						gameObject.renderer.material.color = selectcol;
 				else if (haspiece && isvalidmove && killmove)
 						gameObject.renderer.material.color = killcol;
-				
 				else if (castlingtile != 0)
 						gameObject.renderer.material.color = Color.yellow;
-		else if (isvalidmove == true)
-			gameObject.renderer.material.color = validcol;
-		else 
-			gameObject.renderer.material.color = defcol;
+				else if (isvalidmove == true)
+						gameObject.renderer.material.color = validcol;
+				else 
+						gameObject.renderer.material.color = defcol;
 
+				if (moved == true)
+						moveme (x, this.gameObject, temp,false,true);
+				if (castlingtile == 1 && iscastled == true)
+			moveme (chessboard.GetComponent<chessboard> ().board [row, 0].GetComponent<tileprops> ().top, chessboard.GetComponent<chessboard> ().board [row, col + 1], new Vector3(gameObject.transform.position.x + 2, gameObject.transform.position.y, gameObject.transform.position.z) ,true,false);
+				if (castlingtile == 2 && iscastled == true)
+						moveme (chessboard.GetComponent<chessboard> ().board [row, 7].GetComponent<tileprops> ().top, chessboard.GetComponent<chessboard> ().board [row, col - 1], new Vector3 (gameObject.transform.position.x - 2, gameObject.transform.position.y, gameObject.transform.position.z),true,false);
 
+		
 		}
 
-		void OnMouseDown ()
+		void moveme (GameObject x, GameObject tile, Vector3 temp, bool iscastleds,bool moveds)
 		{
-				if (isvalidmove) {
-						if (!killmove) {
+				x.transform.position = Vector3.Lerp (x.transform.position, temp, 0.3f);
+				
+				if (x.transform.position == temp&&moveds==true) {
+			if(killmove){for(int i =0;i<32;i++){
+					if(chessboard.GetComponent<chessboard>().pieces[i]==top){chessboard.GetComponent<chessboard>().pieces[i]= null; break;}
+				}Destroy (top);}
+						moved = false;
+						chessboard.GetComponent<chessboard> ().board [tile.GetComponent<tileprops> ().row, tile.GetComponent<tileprops> ().col].GetComponent<tileprops> ().top = x;
+						x.GetComponent<chesspiece> ().movecount++;
+						x.GetComponent<chesspiece> ().row = tile.GetComponent<tileprops> ().row;
+						x.GetComponent<chesspiece> ().col = tile.GetComponent<tileprops> ().col;
+						x.GetComponent<chesspiece> ().selected = false;
+						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
+						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
+						x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board [tile.GetComponent<tileprops> ().row, tile.GetComponent<tileprops> ().col];
+						chessboard.GetComponent<chessboard> ().selectedpiece = null;
+						
+						foreach (GameObject y in chessboard.GetComponent<chessboard>().tiles) {
+								y.GetComponent<tileprops> ().haspiece = y.GetComponent<tileprops> ().isvalidmove = y.GetComponent<tileprops> ().killmove = false;
+						}
+						chessboard.GetComponent<chessboard> ().turn = !chessboard.GetComponent<chessboard> ().turn;
 
+				
+				}
+		if (x.transform.position == temp&&iscastleds==true) {
+			iscastled = false;
+			chessboard.GetComponent<chessboard> ().board [tile.GetComponent<tileprops> ().row, tile.GetComponent<tileprops> ().col].GetComponent<tileprops> ().top = x;
+			x.GetComponent<chesspiece> ().movecount++;
+			x.GetComponent<chesspiece> ().row = tile.GetComponent<tileprops> ().row;
+			x.GetComponent<chesspiece> ().col = tile.GetComponent<tileprops> ().col;
+			x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
+			x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
+			x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board [tile.GetComponent<tileprops> ().row, tile.GetComponent<tileprops> ().col];
+			chessboard.GetComponent<chessboard> ().selectedpiece = null;
+			castlingtile=0;
+		}
+		
+		
+		
+	}
+	
+	void OnMouseDown ()
+	{
+		if (isvalidmove) {
+			if (!killmove) {
 								x = chessboard.GetComponent<chessboard> ().selectedpiece;
 								temp = x.transform.position;
 								temp.x = gameObject.transform.position.x;
 								temp.z = gameObject.transform.position.z;
-								x.transform.position = temp;
-								chessboard.GetComponent<chessboard> ().board [row, col].GetComponent<tileprops> ().top = x;
-								x.GetComponent<chesspiece> ().movecount++;
-								x.GetComponent<chesspiece> ().row = row;
-								x.GetComponent<chesspiece> ().col = col;
-								x.GetComponent<chesspiece> ().selected = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
-								x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board [row, col];
+								moved = true;
+								if(castlingtile!=0)iscastled=true;
+				else iscastled = false;
+						}
 
-								chessboard.GetComponent<chessboard> ().selectedpiece = null;
-								x = null;
-								chessboard.GetComponent<chessboard> ().turn = !chessboard.GetComponent<chessboard> ().turn;
-								foreach (GameObject y in chessboard.GetComponent<chessboard>().tiles) {
-										y.GetComponent<tileprops> ().haspiece = y.GetComponent<tileprops> ().isvalidmove = y.GetComponent<tileprops> ().killmove = false;
-								}
 
-						}
-						if (castlingtile == 1) {
-								x = chessboard.GetComponent<chessboard> ().board [row, 0].GetComponent<tileprops> ().top;
-					
-								temp = x.transform.position;
-								temp.x = gameObject.transform.position.x + 2;
-								temp.z = gameObject.transform.position.z;
-								x.transform.position = temp;
-								x.GetComponent<chesspiece> ().movecount++;
-								x.GetComponent<chesspiece> ().row = row;
-								x.GetComponent<chesspiece> ().col = col + 1;
-								x.GetComponent<chesspiece> ().selected = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
-				x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board[row,col+1];
-			chessboard.GetComponent<chessboard> ().board[row,col+1].GetComponent<tileprops>().top=x;
-				castlingtile = 0;
-						}
-						if (castlingtile == 2) {
-								x = chessboard.GetComponent<chessboard> ().board [row, 7].GetComponent<tileprops> ().top;
-								temp = x.transform.position;
-								temp.x = gameObject.transform.position.x - 2;
-								temp.z = gameObject.transform.position.z;
-								x.transform.position = temp;
-								x.GetComponent<chesspiece> ().movecount++;
-								x.GetComponent<chesspiece> ().row = row;
-								x.GetComponent<chesspiece> ().col = col - 1;
-								x.GetComponent<chesspiece> ().selected = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
-								x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
-				x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board[row,col-1];
-				chessboard.GetComponent<chessboard> ().board[row,col-1].GetComponent<tileprops>().top=x;
-				castlingtile = 0;
-						}
 				}
 		}
 }

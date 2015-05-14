@@ -46,41 +46,13 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 		void OnMouseDown ()
 		{
 				if (selected == false && tile.GetComponent<tileprops> ().killmove == true) {
-			
-						x = chessboard.GetComponent<chessboard> ().selectedpiece;
-						temp = x.transform.position;
-						temp.x = gameObject.transform.position.x;
-						temp.z = gameObject.transform.position.z;
-						chessboard.GetComponent<chessboard> ().board [row, col].GetComponent<tileprops> ().top = x;
-
-						int i = 0;
-						foreach (GameObject y in chessboard.GetComponent<chessboard>().pieces) {
-								if (y == this.gameObject) {
-										chessboard.GetComponent<chessboard> ().pieces [i] = null;
-										break;
-								} else
-										i++;
-						}
-						Destroy (this.gameObject);
-						x.GetComponent<chesspiece> ().movecount++;
-						x.GetComponent<chesspiece> ().row = row;
-						x.GetComponent<chesspiece> ().col = col;
-						x.GetComponent<chesspiece> ().selected = false;
-						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().haspiece = false;
-						x.GetComponent<chesspiece> ().tile.GetComponent<tileprops> ().top = null;
-						x.transform.position = temp;
-						x.GetComponent<chesspiece> ().tile = chessboard.GetComponent<chessboard> ().board [row, col];
-						chessboard.GetComponent<chessboard> ().selectedpiece = null;
-						x = null;
-						chessboard.GetComponent<chessboard> ().turn = !chessboard.GetComponent<chessboard> ().turn;
-						chessboard.GetComponent<chessboard> ().selectedpiece = null;
-						foreach (GameObject y in chessboard.GetComponent<chessboard>().tiles) {
-								y.GetComponent<tileprops> ().haspiece = y.GetComponent<tileprops> ().isvalidmove = y.GetComponent<tileprops> ().killmove = false;
-						}
-						foreach (GameObject piece in chessboard.GetComponent<chessboard>().pieces) {
-								if (piece != null)
-										piece.GetComponent<chesspiece> ().selected = false;
-						}
+			this.gameObject.SetActive(false);
+						GameObject killtile = tile;
+						killtile.GetComponent<tileprops>().x = chessboard.GetComponent<chessboard> ().selectedpiece;
+						killtile.GetComponent<tileprops>().temp = killtile.GetComponent<tileprops>().x .transform.position;
+						killtile.GetComponent<tileprops>().temp.x = gameObject.transform.position.x;
+						killtile.GetComponent<tileprops>().temp.z = gameObject.transform.position.z;
+						killtile.GetComponent<tileprops>().moved = true;
 				} else if (selected == false && pcolour == chessboard.GetComponent<chessboard> ().turn) {
 						
 						foreach (GameObject piece in chessboard.GetComponent<chessboard>().tiles) {
@@ -129,7 +101,7 @@ public class chesspiece : MonoBehaviour //inheriting from chessboard
 						break;
 				}
 			
-				if (ptype != 6 && selected == true) {
+				if (ptype != 6 && selected ==true) {
 						
 						for (int i=0; i<64; i++) {
 								if (validmoveinstance [i] != null) {

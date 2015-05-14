@@ -17,7 +17,7 @@ public class chessboard : MonoBehaviour
 		{	
 				tiles = GameObject.FindGameObjectsWithTag ("tile");	//the directory of tiles in the board
 				pieces = GameObject.FindGameObjectsWithTag ("piece");	//the pieces in the board
-		kings = new GameObject[2];
+				kings = new GameObject[2];
 				foreach (GameObject x in tiles) {
 						board [x.GetComponent<tileprops> ().row, x.GetComponent<tileprops> ().col] = x;
 				}
@@ -63,6 +63,7 @@ public class chessboard : MonoBehaviour
 					if(x!=null){
 					if(x.GetComponent<chesspiece>().pcolour==true)
 			{
+				
 				x.GetComponent<chesspiece>().validmoves();
 				if(x.GetComponent<chesspiece>().validcount!=0||x.GetComponent<chesspiece>().killcount!=0){
 					stalemate = 0;
