@@ -4,6 +4,6 @@ using System.Collections;
 public class reset : MonoBehaviour {
 
 	public void resetboard(){
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 	}
 }

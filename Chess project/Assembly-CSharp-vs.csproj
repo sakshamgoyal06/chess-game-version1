@@ -49,9 +49,13 @@
      <Compile Include="Assets\scripts\camera.cs" />
      <Compile Include="Assets\scripts\chessboard.cs" />
      <Compile Include="Assets\scripts\chesspiece.cs" />
+     <Compile Include="Assets\scripts\en passsant.cs" />
+     <Compile Include="Assets\scripts\pawnpromotion.cs" />
+     <Compile Include="Assets\scripts\quit.cs" />
      <Compile Include="Assets\scripts\reset.cs" />
      <Compile Include="Assets\scripts\soldierpanelscript.cs" />
      <Compile Include="Assets\scripts\tileprops.cs" />
+     <Compile Include="Assets\scripts\undo.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>I:/EDUCATION/Game Workstation/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>

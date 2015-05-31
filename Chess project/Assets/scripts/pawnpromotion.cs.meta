@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bba30cce1601fd9409fa026fecf95cc7
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - q: {fileID: 3300000, guid: 4513e02a113b35143810ee4d8f1293a6, type: 3}
+  - b: {fileID: 3300000, guid: 5247672f8b4dffa4e8bf6a3bde50858c, type: 3}
+  - c: {fileID: 3300000, guid: 398529c32a7018b4a992c2d6431ce68a, type: 3}
+  - k: {fileID: 3300000, guid: 04eff77d4792f454baff33085b61047b, type: 3}
+  - qu: {instanceID: 0}
+  - bi: {instanceID: 0}
+  - ca: {instanceID: 0}
+  - kn: {instanceID: 0}
+  - panel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
